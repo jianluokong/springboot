@@ -18,4 +18,13 @@ public class HelloService {
         System.out.println(name);
         return "hi,"+name+",sorry,error!";
     }
+
+    @HystrixCommand(fallbackMethod = "hiHomeError")
+    public String hiHome() {
+        return restTemplate.getForObject("http://SERVICE-HI/hiHome", String.class);
+    }
+
+    public String hiHomeError() {
+        return "hiHomeError,sorry,error!";
+    }
 }

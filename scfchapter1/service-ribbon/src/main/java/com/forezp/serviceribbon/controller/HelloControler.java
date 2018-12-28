@@ -15,4 +15,9 @@ public class HelloControler {
     public String hi(@RequestParam String name) {
         return helloService.hiService(name);
     }
+
+    @GetMapping(value = "/hiHome")
+    public String hiHome() {
+        return helloService.hiHome();
+    }
 }
